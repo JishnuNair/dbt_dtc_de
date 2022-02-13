@@ -35,6 +35,11 @@ models:
   taxi_rides_ny:
     staging:
       materialized: view
-    # Applies to all files under models/example/
-    example:
-      materialized: view
+    core:
+      materialized: table
+
+seeds:
+  taxi_rides_ny:
+    taxi_zone_lookup:
+      +column_types:
+        locationid: numeric
